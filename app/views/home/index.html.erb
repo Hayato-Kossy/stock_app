@@ -1,0 +1,14 @@
+<h1>株価アプリ</h1>
+
+<%= form_with url: root_path, method: :post, local: true do |f| %>
+    <%= text_field_tag :ticker, nil, placeholder: "Enter Ticker Symbol", size: 50 %>
+    <%= submit_tag 'Lookup' %>
+<% end %>
+
+<% if @stock %>
+  <p>Open: <%= @stock["Global Quote"]["02. open"] %></p>
+  <p>High: <%= @stock["Global Quote"]["03. high"] %></p>
+  <p>Low: <%= @stock["Global Quote"]["04. low"] %></p>
+  <p>Price: <%= @stock["Global Quote"]["05. price"] %></p>
+  <p>Volume: <%= @stock["Global Quote"]["06. volume"] %></p>
+<% end %>
